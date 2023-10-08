@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import axios from "axios";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
 
 function Users() {
@@ -9,6 +10,11 @@ function Users() {
         Phone: 123456789,
         Message: "Do you offer 1 to 1 private classes?"
     }])
+    useEffect(() => {
+        axios.get('http://localhost:3001/')
+        .then(result => setUsers(result.data))
+        .catch(err => console.log(err))
+    })
     return (
         <div>
            <div>
