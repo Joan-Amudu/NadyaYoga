@@ -1,34 +1,80 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useParams, useNavigate} from "react-router-dom";
+import axios from 'axios'
 
 function UpdateUser () {
+    const {id} = useParams()
+    const [FirstName, setfName] = useState()
+    const [LastName, setlName] = useState()
+    const [Email, setEmail] = useState()
+    const [Phone, setPhone] = useState()
+    const [Message, setMessage] = useState()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/getUser/'+id)
+        .then(result => {console.log(result)
+            setfName(result.data.FirstName)
+            setlName(result.data.LastName)
+            setEmail(result.data.Email)
+            setPhone(result.data.Phone)
+            setMessage(result.data.Message)
+        })
+        .catch(err => console.log(err))
+    }, [])
+    const Update = (e) => {
+        e.preventDefault();
+        axios.put("http://localhost:3001/updateUser/"+id, {FirstName, LastName, Email, Phone, Message})
+        .then(result => {
+            console.log(result)
+            navigate('/')
+        })
+        .catch(err => console.log(err))
+    }
+
     return (
         <div>
             <div>
-                <form>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name" />
+                <form onSubmit={Update}>
+                <div className="row">
+                    <div className="col">
+                        <input 
+                            type="text"
+                            className="form-control" 
+                            placeholder="First Name"                            
+                            value={FirstName}
+                            onChange={(e) => setfName(e.target.value)} />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" />
+                    <div className="col">
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Last Name"                             
+                            value={LastName}
+                            onChange={(e) => setlName(e.target.value)} />
                     </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div className="mb-3">
+                        <label htmlFor="">Email address</label>
+                        <input type="email" placeholder="Email"  className="form-control"                         
+                         value={Email}
+                         onChange={(e) => setEmail(e.target.value)} />                        
                     </div>
                 
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" />
+                    <div className="mb-3">
+                        <label htmlFor="" >Phone</label>
+                        <input type="number" placeholder="Phone"  className="form-control"                        
+                         value={Phone}
+                         onChange={(e) => setPhone(e.target.value)} />
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div className="mb-3">
+                        <label htmlFor="">Message</label>
+                        <textarea placeholder="Message"  className="form-control" rows="3"
+                         value={Message}
+                         onChange={(e) => setMessage(e.target.value)}></textarea>
                     </div>
                   
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit">Update</button>
                 </form>
             </div>
         </div>

@@ -14,7 +14,9 @@ function Users() {
         axios.get('http://localhost:3001/')
         .then(result => setUsers(result.data))
         .catch(err => console.log(err))
-    })
+    }, [])
+
+    
     return (
         <div>
            <div>
@@ -41,7 +43,7 @@ function Users() {
                             <td>{user.Phone}</td>
                             <td>{user.Message}</td>
                             <td>
-                            <Link to="/update">Update</Link>
+                            <Link to={`/update/${user._id}`}>Update</Link>
                                 <button>Delete</button>
                             </td>
                            
