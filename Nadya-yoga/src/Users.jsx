@@ -16,6 +16,14 @@ function Users() {
         .catch(err => console.log(err))
     }, [])
 
+    const handleDelete = (id) => {
+        axios.delete('http://localhost:3001/deleteUser/'+id)
+        .then(res => {
+            console.log(res)
+            window.location.reload()
+        })
+        .catch(error => console.log(error))
+    }
     
     return (
         <div>
@@ -44,7 +52,7 @@ function Users() {
                             <td>{user.Message}</td>
                             <td>
                             <Link to={`/update/${user._id}`}>Update</Link>
-                                <button>Delete</button>
+                                <button onClick={(e) => handleDelete(user._id)}>Delete</button>
                             </td>
                            
                         </tr>
