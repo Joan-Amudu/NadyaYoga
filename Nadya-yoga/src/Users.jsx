@@ -11,7 +11,7 @@ function Users() {
         Message: "Do you offer 1 to 1 private classes?"
     }])
     useEffect(() => {
-        axios.get('http://localhost:3001/')
+        axios.get('http://localhost:3001/Users')
         .then(result => setUsers(result.data))
         .catch(err => console.log(err))
     }, [])

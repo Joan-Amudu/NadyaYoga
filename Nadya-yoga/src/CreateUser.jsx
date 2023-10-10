@@ -25,22 +25,22 @@ function CreateUser () {
         <div>
             <div>
                 <form onSubmit={Submit}>
-                <div className="row">
-                    <div className="col">
+                
+                    <div className="mb-3">
                         <input 
                             type="text"
                             className="form-control" 
                             placeholder="First Name"                            
                             onChange={(e) => setfName(e.target.value)} />
                     </div>
-                    <div className="col">
+                    <div className="mb-3">
                         <input 
                             type="text" 
                             className="form-control" 
                             placeholder="Last Name"                             
                             onChange={(e) => setlName(e.target.value)} />
                     </div>
-                    </div>
+                    
                     <div className="mb-3">
                         <label htmlFor="">Email address</label>
                         <input type="email" placeholder="Email"  className="form-control"                         

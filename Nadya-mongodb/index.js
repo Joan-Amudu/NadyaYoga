@@ -9,7 +9,7 @@ app.use(express.json())
 
 Mongoose.connect("mongodb://127.0.0.1:27017/nadya-yoga")
 
-app.get('/', (req, res) => {
+app.get('/Users', (req, res) => {
     UserModel.find({})
     .then(users => res.json(users))
     .catch(err => res.json(err))
@@ -43,6 +43,13 @@ app.delete('/deleteUser/:id', (req, res) => {
 })
 
 app.post("/createUser", (req, res) => {
+    UserModel.create(req.body, res)
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+
+})
+
+app.post("/contact", (req, res) => {
     UserModel.create(req.body, res)
     .then(users => res.json(users))
     .catch(err => res.json(err))
