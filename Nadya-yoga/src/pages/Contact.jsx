@@ -26,7 +26,11 @@ export default function Contact() {
         .catch(err => console.log(err))
     }
   return (
-    <Form onSubmit={handleContact}>
+   
+    <Form md={{ span: 6, offset: 3 }} onSubmit={handleContact}>
+       <h2>I AM SO EXCITED YOU COULD JOIN US!</h2>
+<p>Receive your free meditation for download upon joining my mailing list!</p> 
+<p>Stay up-to-date on upcoming events, news and  inspiration to support you in your yoga journey. </p> 
         <Row>
         <Col>
           <Form.Control placeholder="First name" onChange={(e) => setfName(e.target.value)} />
