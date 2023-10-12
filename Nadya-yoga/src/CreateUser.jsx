@@ -1,6 +1,8 @@
 import React , {useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 
 
 function CreateUser () {
@@ -17,49 +19,46 @@ function CreateUser () {
         axios.post("http://localhost:3001/createUser", {FirstName, LastName, Email, Phone, Message})
         .then(result => {
             console.log(result)
-            navigate('/')
+            navigate('/users')
         })
         .catch(err => console.log(err))
     }
     return (
         <div>
+            <h3 className="text-center text-black mt-4 mb-4">
+        <span>Create a new User!</span>
+      </h3>
+      
             <div>
-                <form onSubmit={Submit}>
-                
-                    <div className="mb-3">
-                        <input 
-                            type="text"
-                            className="form-control" 
-                            placeholder="First Name"                            
-                            onChange={(e) => setfName(e.target.value)} />
-                    </div>
-                    <div className="mb-3">
-                        <input 
-                            type="text" 
-                            className="form-control" 
-                            placeholder="Last Name"                             
-                            onChange={(e) => setlName(e.target.value)} />
-                    </div>
-                    
-                    <div className="mb-3">
-                        <label htmlFor="">Email address</label>
-                        <input type="email" placeholder="Email"  className="form-control"                         
-                         onChange={(e) => setEmail(e.target.value)} />                        
-                    </div>
-                
-                    <div className="mb-3">
-                        <label htmlFor="" >Phone</label>
-                        <input type="number" placeholder="Phone"  className="form-control"                        
-                         onChange={(e) => setPhone(e.target.value)} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="">Message</label>
-                        <textarea placeholder="Message"  className="form-control" rows="3"
-                         onChange={(e) => setMessage(e.target.value)}></textarea>
-                    </div>
-                  
-                    <button type="submit">Submit</button>
-                </form>
+            <Form className="contact-form pb-4" md={{ span: 4, offset: 6 }} onSubmit={Submit}>
+        
+      
+        <Form.Group className="mb-4" controlId="formBasicEmail">            
+          <Form.Control type="text" placeholder="First name" onChange={(e) => setfName(e.target.value)} required />            
+        </Form.Group>
+        <Form.Group className="mb-4" controlId="formBasicEmail">            
+          <Form.Control type="text" placeholder="Last name" onChange={(e) => setlName(e.target.value)} required />
+              
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="formBasicEmail">
+              
+              <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} required />
+              <Form.Text className="text-muted" text-align="left">
+              We'll never share your email with anyone else.
+              </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="formBasicPhone">
+              
+              <Form.Control type="number" placeholder="Phone " onChange={(e) => setPhone(e.target.value)} />
+          </Form.Group>        
+          <Form.Group className="mb-4" controlId="formBasicMessage">
+              
+              <Form.Control as="textarea" rows={3} placeholder="Message" onChange={(e) => setMessage(e.target.value)} />
+          </Form.Group>
+          <Button type="submit">
+              Submit
+          </Button>
+      </Form>
             </div>
         </div>
     )

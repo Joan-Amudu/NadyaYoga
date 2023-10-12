@@ -29,9 +29,35 @@ body {
 }
 
 body {
-  background: #FFF;
+  background: #5A5A5A;
   color: #040000;
 }
+
+.contact-form,
+.form-control
+ {
+  color: #000;  
+  border-radius: 0; 
+  display: grid;        
+  justify-content: center;
+  align-items: center;  
+  
+}
+h2 {
+  color: #7175A2;
+}
+
+span {
+  border-bottom: 4px solid #243B5D;
+  justify-content: center;
+}
+
+button {
+  background: white;
+  color: black;
+  min-width: 200px;
+}
+
 footer {
   border-top: #040000 solid 1px;
   padding: 4px;

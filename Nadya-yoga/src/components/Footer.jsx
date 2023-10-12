@@ -15,7 +15,7 @@ function Copyright() {
 
 export default function Footer(){
     return (
-    <footer className="py-3, px-2, mt-auto">
+    <footer className="py-3, px-2, mt-auto" fixed="bottom">
       {/* Footer content goes here */}
         <a href='https://www.facebook.com/' rel='noopener noreferrer' target='_blank'>Facebook</a> |
         <a href='https://www.instagram.com/' rel='noopener noreferrer' target='_blank'>Instagram</a> |

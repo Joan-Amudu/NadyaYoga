@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import axios from 'axios'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 
 function UpdateUser () {
     const {id} = useParams()
@@ -27,56 +29,64 @@ function UpdateUser () {
         axios.put("http://localhost:3001/updateUser/"+id, {FirstName, LastName, Email, Phone, Message})
         .then(result => {
             console.log(result)
-            navigate('/')
+            navigate('/users')
         })
         .catch(err => console.log(err))
     }
 
     return (
         <div>
-            <div>
-                <form onSubmit={Update}>
-                <div className="row">
-                    <div className="col">
-                        <input 
-                            type="text"
-                            className="form-control" 
-                            placeholder="First Name"                            
-                            value={FirstName}
-                            onChange={(e) => setfName(e.target.value)} />
-                    </div>
-                    <div className="col">
-                        <input 
-                            type="text" 
-                            className="form-control" 
-                            placeholder="Last Name"                             
-                            value={LastName}
-                            onChange={(e) => setlName(e.target.value)} />
-                    </div>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="">Email address</label>
-                        <input type="email" placeholder="Email"  className="form-control"                         
-                         value={Email}
-                         onChange={(e) => setEmail(e.target.value)} />                        
-                    </div>
-                
-                    <div className="mb-3">
-                        <label htmlFor="" >Phone</label>
-                        <input type="number" placeholder="Phone"  className="form-control"                        
-                         value={Phone}
-                         onChange={(e) => setPhone(e.target.value)} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="">Message</label>
-                        <textarea placeholder="Message"  className="form-control" rows="3"
-                         value={Message}
-                         onChange={(e) => setMessage(e.target.value)}></textarea>
-                    </div>
-                  
-                    <button type="submit">Update</button>
-                </form>
-            </div>
+            <h3 className="text-center text-black mt-4 mb-4">
+                <span>Update Contact!</span>                
+            </h3>
+            <p className="text-muted">Check all details are correct before updating</p>           
+            <Form className="contact-form pb-4" md={{ span: 4, offset: 6 }} onSubmit={Update}>    
+                <Form.Group className="mb-4" controlId="formBasicEmail">            
+                    <Form.Control
+                        type="text" 
+                        placeholder="First name" 
+                        value={FirstName}
+                        onChange={(e) => setfName(e.target.value)} 
+                        required />            
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formBasicEmail">            
+                    <Form.Control 
+                        type="text" 
+                        placeholder="Last name" 
+                        value={LastName}
+                        onChange={(e) => setlName(e.target.value)} 
+                        required />                
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formBasicEmail">              
+                    <Form.Control 
+                        type="email" 
+                        placeholder="Enter email" 
+                        value={Email}
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required />
+                    <Form.Text className="text-muted" text-align="left">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formBasicPhone">                
+                    <Form.Control 
+                        type="number" 
+                        placeholder="Phone " 
+                        value={Phone}
+                        onChange={(e) => setPhone(e.target.value)} />
+                </Form.Group>        
+                <Form.Group className="mb-4" controlId="formBasicMessage">                
+                    <Form.Control 
+                        as="textarea" 
+                        rows={3} 
+                        placeholder="Message" 
+                        value={Message}
+                        onChange={(e) => setMessage(e.target.value)} />
+                </Form.Group>
+                <Button type="submit">
+                    Submit
+                </Button>
+            </Form>       
         </div>
     )
 }

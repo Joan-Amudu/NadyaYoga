@@ -60,27 +60,19 @@ export default function Classes () {
     
     
   return (
-    <div>
-       
-            <Image src="/classes.jpeg" height="250" fluid />
-            <div>
-            <h4>Find the perfect class for you!</h4>
-             
-<p>Nadya Yoga offers a gentle, meditative style of yoga for people of all abilities and yoga experience.
-
-General yoga comprising mindful movement, breathing techniques, and relaxation
-
-Chair-based/Seniors
-
-Relaxation and meditation
-
-Restorative yoga
-
-Group classes and private classes
-
-Classes are suitable for all levels of fitness and yoga experience. Beginners are welcome!</p>
-</div>
-        <Row xs={1} md={3} className="g-4">
+    <div> 
+      <h2 className="text-center text-black mt-4 mb-4"><span>Upcoming Classes</span></h2>      
+      <Image src="/classes.jpeg" height="250" fluid />
+      <div className="mx-auto p-4">
+        <h4>Find the perfect class for you!</h4>             
+        <p>Nadya Yoga offers a gentle, meditative style of yoga for people of all abilities
+           and yoga experience.
+        </p>
+        <p>Classes are suitable for all levels of fitness and yoga experience.
+           Beginners are welcome!
+        </p>
+      </div>
+        <Row xs={1} md={3} className=" mb-4 g-4">
         {eventItems}
         </Row>
     </div>
