@@ -11,6 +11,7 @@ function UpdateUser () {
     const [Email, setEmail] = useState()
     const [Phone, setPhone] = useState()
     const [Message, setMessage] = useState()
+    const [Comments, setComments] = useState()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -21,12 +22,13 @@ function UpdateUser () {
             setEmail(result.data.Email)
             setPhone(result.data.Phone)
             setMessage(result.data.Message)
+            setComments(result.data.Comments)
         })
         .catch(err => console.log(err))
     }, [])
     const Update = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3001/updateUser/"+id, {FirstName, LastName, Email, Phone, Message})
+        axios.put("http://localhost:3001/updateUser/"+id, {FirstName, LastName, Email, Phone, Message, Comments})
         .then(result => {
             console.log(result)
             navigate('/users')
@@ -83,7 +85,15 @@ function UpdateUser () {
                         value={Message}
                         onChange={(e) => setMessage(e.target.value)} />
                 </Form.Group>
-                <Button type="submit">
+                <Form.Group className="mb-4" controlId="formBasicMessage">                
+                    <Form.Control 
+                        as="textarea" 
+                        rows={3} 
+                        placeholder="Comments" 
+                        value={Comments}
+                        onChange={(e) => setComments(e.target.value)} />
+                </Form.Group>
+                <Button type="submit" variant="outline-dark" className="pb-2">
                     Submit
                 </Button>
             </Form>       

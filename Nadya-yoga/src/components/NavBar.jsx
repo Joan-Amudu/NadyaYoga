@@ -13,7 +13,10 @@ function NavBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="classes">Classes</Nav.Link>
             <Nav.Link href="contact">Contact</Nav.Link>            
-            <Nav.Link className="justify-content-end" href="users">Admin</Nav.Link>            
+                        
+          </Nav>
+          <Nav>
+          <Nav.Link className="justify-content-end" href="/users">Admin</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

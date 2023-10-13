@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 export default function Contact() {
     const [FirstName, setfName] = useState()
     const [LastName, setlName] = useState()
@@ -56,9 +57,9 @@ export default function Contact() {
             
             <Form.Control as="textarea" rows={3} placeholder="Message" onChange={(e) => setMessage(e.target.value)} />
         </Form.Group>
-        <Button type="submit">
+        <Button type="submit" variant="outline-dark" className="pb-2">
             Submit
-        </Button>
+        </Button> 
     </Form>
     </div>
   );

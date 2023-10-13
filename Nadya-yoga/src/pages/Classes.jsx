@@ -38,7 +38,7 @@ function EventCard({image, title, subtitle, description}) {
           <Card.Text>
             {description}
           </Card.Text>
-          <Button href="contact">Find out More..</Button>
+          <Button href="contact" variant="outline-dark" className="pb-2">Find out More..</Button>
         </Card.Body>
       </Card>
     );

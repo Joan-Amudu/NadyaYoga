@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
 import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 
 function Users() {
     const [users, setUsers] = useState([{
@@ -9,7 +10,8 @@ function Users() {
         LastName: "Baare",
         Email: "joan.baare@gmail.com",
         Phone: 123456789,
-        Message: "Do you offer 1 to 1 private classes?"
+        Message: "Do you offer 1 to 1 private classes?",
+        Commets: "Email Yoga Retreat Details"
     }])
     useEffect(() => {
         axios.get('http://localhost:3001/Users')
@@ -27,12 +29,15 @@ function Users() {
     }
     
     return (
-        <div>
-            <h3>Welcome to the Admin Dashboard</h3>
-            <Image src="/Admin.jpeg" fluid />
-           <div>
-            <Link type="button" to="/create">Create new Contact</Link>
-                <table className="table">
+        <div className="mt-4 mb-4">
+            <h3 className="mt-4 mb-4"><span>Admin Dashboard</span></h3>
+            <Link to="/create" className="mt-4 mb-4 justify-content-right"><Button variant="outline-dark" className="pb-2">Create new Contact</Button></Link>
+            
+            <div className="mt-4 mb-4">
+                <Image src="/Admin.jpeg" fluid />
+                <h5 className="mt-4 mb-4">Mailing List</h5>
+            
+                <table className="mt-4 table">
                     <thead>
                         <tr>                    
                             <th scope="col">First Name</th>
@@ -40,6 +45,7 @@ function Users() {
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Message</th>
+                            <th scope="col">Comments</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -52,9 +58,10 @@ function Users() {
                                 <td>{user.Email}</td>
                                 <td>{user.Phone}</td>
                                 <td>{user.Message}</td>
+                                <td>{user.Comments}</td>
                                 <td>
-                                <Link to={`/update/${user._id}`}>Update</Link>
-                                    <button onClick={(e) => handleDelete(user._id)}>Delete</button>
+                                <Link to={`/update/${user._id}`}><Button className="pb-2" variant="outline-dark">Update</Button></Link>
+                                    <Button variant="outline-dark" className="pb-2" onClick={(e) => handleDelete(user._id)}>Delete</Button>
                                 </td>                           
                             </tr>
                         })  

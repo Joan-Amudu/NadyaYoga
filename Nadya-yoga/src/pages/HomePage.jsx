@@ -5,10 +5,12 @@ import Button from 'react-bootstrap/Button';
 export default function Homepage() { 
     return (
         <div>
-        
-            <Image src="/HeroImage.jpeg" fluid />
+            <div>
+                <Image src="/HeroImage.jpeg" fluid />
+            </div>
+            
             <div className="mx-auto p-4">
-                <h3 >Welcome!</h3>
+                <h3><span>Welcome!</span></h3>
                 <p>
                     I am delighted you have found your way to this portal.
                     My wish is for us to find a place in the Universal Field
@@ -22,8 +24,10 @@ export default function Homepage() {
                 </p>
             </div>
             <div className="mx-auto p-4">
-                <h4>Stay Connected!</h4>
-                <Button href="/contact">Subscribe to my Mailing List</Button>
+                <h5><span>Stay Connected!</span></h5>
+                <p>If you'd like more information about classes and memberships please contact us or subscribe to our mailing list.</p>
+                <p>Don't be shy!</p>
+                <Button href="/contact" variant="outline-dark" className="pb-2">Subscribe to my Mailing List</Button>
             </div>
         </div>
     )
