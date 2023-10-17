@@ -1,5 +1,5 @@
 # **NADYA YOGA**
-
+A website for a Yoga teacher to show case her skill and current services.
 ### Forking
 Forking the GitHub Repository
 
@@ -47,7 +47,12 @@ npm install react-bootstrap axios react-router-dom
 
 
 ### Testing
+Manual testing using the terminal and chrome dev tools
 
 ### Resources
+- [React-Bootstrap](https://react-bootstrap.netlify.app/)
+- [Stack-overflow](https://stackoverflow.com/)
+- IOD course materials
 
 ### Acknowledgement
+I'd like to thank Naveed 
