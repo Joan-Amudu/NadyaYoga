@@ -1,5 +1,6 @@
 import React from 'react';
 
+{/* Copyright details */}
 function Copyright() {
     return (
       <div>

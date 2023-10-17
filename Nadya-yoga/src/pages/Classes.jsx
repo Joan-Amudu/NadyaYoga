@@ -47,14 +47,10 @@ function EventCard({image, title, subtitle, description}) {
 export default function Classes () {
     const [currentEvents] = useState(events);
     const eventItems = currentEvents.map(event => {
-        return (
-          
-                      
+        return (                   
             <Col>
               <EventCard image={event.image} title={event.title} subtitle={event.subtitle} description={event.description}/>
-            </Col>
-        
-         
+            </Col>      
         )
     })
     

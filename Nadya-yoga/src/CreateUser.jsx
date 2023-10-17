@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
-
+{/*Function to create a new contact and add to the Mongo DB database*/}
 function CreateUser () {
     const [FirstName, setfName] = useState()
     const [LastName, setlName] = useState()

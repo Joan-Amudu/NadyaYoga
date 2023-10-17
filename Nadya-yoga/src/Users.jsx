@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
+
 function Users() {
     const [users, setUsers] = useState([{
         FirstName: "Joan",
@@ -36,7 +37,8 @@ function Users() {
             <div className="mt-4 mb-4">
                 <Image src="/Admin.jpeg" fluid />
                 <h5 className="mt-4 mb-4">Mailing List</h5>
-            
+
+            {/*Dynamically display contat information */}
                 <table className="mt-4 table">
                     <thead>
                         <tr>                    
