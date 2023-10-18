@@ -35,16 +35,20 @@ where changes can be made without affecting the original repository by taking th
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) for more information about cloning repositories. 
 
 ### How to start the program
-This is project was built with reactand vite so you need to the following commands to run it locally on your IDE
+#### Frontend
+This is project was built with react and vite so you need to the following commands to run it locally on your IDE
 1. npm init vite
 2. cd project name
 3. npm install
 4. npm run dev
 
-***Packages***
+***Packages: ***
 npm install react-bootstrap axios react-router-dom
-
-
+#### Server-side (Nadya-mongodb)
+Configure Mongo DB, CRUD 
+1. cd Nadya-mongodb
+2. npm init -y (to create a package.json file)
+3. npm install express mongoose cors nodemon
 
 ### Testing
 Manual testing using the terminal and chrome dev tools
@@ -54,5 +58,3 @@ Manual testing using the terminal and chrome dev tools
 - [Stack-overflow](https://stackoverflow.com/)
 - IOD course materials
 
-### Acknowledgement
-I'd like to thank Naveed 

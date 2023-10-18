@@ -7,7 +7,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+//create a connection with MongoDB
 Mongoose.connect("mongodb://127.0.0.1:27017/nadya-yoga")
+
 
 app.get('/Users', (req, res) => {
     UserModel.find({})
@@ -22,6 +24,7 @@ app.get('/getUser/:id', (req, res) => {
     .catch(err => res.json(err))
 })
 
+//API to update user details
 app.put('/updateUser/:id', (req, res) => {
     const id = req.params.id;
     UserModel.findByIdAndUpdate({_id: id}, {
@@ -29,11 +32,13 @@ app.put('/updateUser/:id', (req, res) => {
         LastName: req.body.LastName,
         Email: req.body.Email,
         Phone: req.body.Phone,
-        Message: req.body.Message
+        Message: req.body.Message,
+        Comments: req.body.Comments
     })
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
+
 
 app.delete('/deleteUser/:id', (req, res) => {
     const id = req.params.id;
@@ -42,6 +47,7 @@ app.delete('/deleteUser/:id', (req, res) => {
     .catch(err => res.json(err))
 })
 
+//API to create a new user - contact
 app.post("/createUser", (req, res) => {
     UserModel.create(req.body, res)
     .then(users => res.json(users))
@@ -49,6 +55,7 @@ app.post("/createUser", (req, res) => {
 
 })
 
+//API to create a new user via the frontend contact form
 app.post("/contact", (req, res) => {
     UserModel.create(req.body, res)
     .then(users => res.json(users))
@@ -56,6 +63,7 @@ app.post("/contact", (req, res) => {
 
 })
 
+//run server
 app.listen(3001, () => {
     console.log("Server is running")
 })
